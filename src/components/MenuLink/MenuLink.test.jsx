@@ -11,6 +11,14 @@ describe('<MenuLink />', () => {
     );
   });
 
+  it('should render a internal link', () => {
+    renderTheme(<MenuLink link="/localhost">children</MenuLink>);
+    expect(screen.getByRole('link', { name: 'children' })).toHaveAttribute(
+      'target',
+      '_self'
+    );
+  });
+
   it('should open in a new tab', () => {
     const { container } = renderTheme(
       <MenuLink link="https://localhost" newTab={true}>

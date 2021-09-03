@@ -1,5 +1,5 @@
 import { LogoLink } from '.';
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { renderTheme } from '../../styles/render-theme';
 
 describe('<LogoLink />', () => {
@@ -17,6 +17,18 @@ describe('<LogoLink />', () => {
   it('should render image logo', () => {
     renderTheme(<LogoLink link="#target" text="Olá mundo" srcImg="logo.jpg" />);
     expect(screen.getByAltText('Olá mundo')).toHaveAttribute('src', 'logo.jpg');
+  });
+
+  it('should render internal link', () => {
+    renderTheme(<LogoLink link="/target" text="Olá mundo" srcImg="logo.jpg" />);
+    expect(screen.getByAltText('Olá mundo')).toHaveAttribute('src', 'logo.jpg');
+  });
+
+  it('should render internal link with test only', () => {
+    renderTheme(<LogoLink link="/target" text="Olá mundo" />);
+    expect(
+      screen.getByRole('heading', { name: 'Olá mundo' })
+    ).toBeInTheDocument();
   });
 
   it('should match snapshot', () => {
