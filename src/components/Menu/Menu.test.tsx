@@ -2,7 +2,7 @@ import { fireEvent, screen } from '@testing-library/react';
 import { renderTheme } from '../../styles/render-theme';
 import { Menu } from '.';
 
-import linksMock from '../NavLinks/mock.js';
+import linksMock from '../NavLinks/mock';
 import { theme } from '../../styles/theme';
 
 const logoData = {
@@ -20,7 +20,7 @@ describe('<Menu />', () => {
   });
 
   it('should render manu mobile and button for open and close the menu', () => {
-    const { container } = renderTheme(<Menu links={linksMock} logoData={logoData} />);
+    renderTheme(<Menu links={linksMock} logoData={logoData} />);
 
     const button = screen.getByLabelText('Open/Close menu');
     const menuContainer = button.nextSibling;
