@@ -1,10 +1,4 @@
-import {
-  mapImageGrid,
-  mapSectionContent,
-  mapSections,
-  mapSectionTwoColumns,
-  mapTextGrid,
-} from './map-sections';
+import { mapImageGrid, mapSectionContent, mapSections, mapSectionTwoColumns, mapTextGrid } from './map-sections';
 
 import pagesFakeData from './dados.json';
 
@@ -26,9 +20,7 @@ describe('map-sections', () => {
       },
     ]);
     const withNoComponent = mapSections([]);
-    expect(withNoTextOrImageGrid).toEqual([
-      { __component: 'section.section-grid' },
-    ]);
+    expect(withNoTextOrImageGrid).toEqual([{ __component: 'section.section-grid' }]);
     expect(withNoComponent).toEqual([]);
   });
 
@@ -160,8 +152,7 @@ describe('map-sections', () => {
       image_grid: [
         {
           image: {
-            alternativeText:
-              'pintura na parede de um homem descendo pelo papel de uma máquina de escrever',
+            alternativeText: 'pintura na parede de um homem descendo pelo papel de uma máquina de escrever',
             url: 'https://res.cloudinary.com/lordmaus/image/upload/v1627833274/360x360_r_2_1f1324a934.jpg',
           },
         },
@@ -180,8 +171,6 @@ describe('map-sections', () => {
     expect(data.grid[0].srcImg).toBe(
       'https://res.cloudinary.com/lordmaus/image/upload/v1627833274/360x360_r_2_1f1324a934.jpg'
     );
-    expect(data.grid[0].altText).toBe(
-      'pintura na parede de um homem descendo pelo papel de uma máquina de escrever'
-    );
+    expect(data.grid[0].altText).toBe('pintura na parede de um homem descendo pelo papel de uma máquina de escrever');
   });
 });

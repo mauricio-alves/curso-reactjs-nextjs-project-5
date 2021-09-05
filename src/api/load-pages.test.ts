@@ -37,8 +37,6 @@ describe('load-pages', () => {
 
   it('should callf etch with correct slug', async () => {
     await loadPages('atenção testando');
-    expect(mockFetch).toHaveBeenCalledWith(
-      config.url + '/pages/?slug=atenotestando'
-    );
+    expect(mockFetch).toHaveBeenCalledWith(config.url + '/pages/?slug=atenotestando');
   });
 });
